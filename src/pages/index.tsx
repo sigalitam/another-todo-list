@@ -40,12 +40,19 @@ const Home: React.FC = () => {
     setTasks(updatedTasks);
   };
 
+  const reorderTasks = (updatedTasks: TaskTypes[]) => {
+    const reorderTasks = [...updatedTasks];
+    reorderTasks.sort((a, b) => Number(a.checked) - Number(b.checked));
+    return reorderTasks;
+  };
+
   const updateTaskHandler = (id: string, type: string, rename?: string) => {
-    const updatedTasks = [...tasks];
+    let updatedTasks = [...tasks];
     const taskIndex = updatedTasks.findIndex((task) => task.id === id);
     if (taskIndex !== -1) {
       if (type === "checked") {
         updatedTasks[taskIndex].checked = !updatedTasks[taskIndex].checked;
+        updatedTasks = reorderTasks(updatedTasks);
       }
       if (type === "rename") {
         updatedTasks[taskIndex].name = rename || "";

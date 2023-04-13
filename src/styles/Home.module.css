@@ -1,132 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;500&display=swap");
 
 .mainWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4rem; 
-    font-family: 'Assistant', sans-serif;
-    color: #090F24;
-    /* direction: rtl; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  font-family: "Assistant", sans-serif;
+  color: #090f24;
+  /* direction: rtl; */
 }
 
 .addTask {
-    display: flex;
-    gap: 8px;
-    width: 50%;
-    align-items: center;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 8px;
+  width: 50%;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.addTask input{
-    border: solid 4px #E2E4EA;
-    font-size: 24px;
-    border-radius: 20px;
-    width: calc(100% - 40px);
-    padding: 16px;
-    background-color: transparent;
-    font-family: 'Assistant', sans-serif;
-    color: #090F24;
+.addTask input {
+  border: solid 4px #e2e4ea;
+  font-size: 24px;
+  border-radius: 20px;
+  width: calc(100% - 40px);
+  padding: 1.4rem 2rem;
+  background-color: transparent;
+  font-family: "Assistant", sans-serif;
+  color: #090f24;
 }
 
-.addTask input::placeholder { 
-    color: #9B9FAD;
-  }
+.addTask input::placeholder {
+  color: #9b9fad;
+}
 
 .addTask button {
-    color: #fff;
-    background-color: #8E5AD1;
-    border-radius: 20px;
-    box-shadow: none;
-    border: none;
-    height: 70px;
-    width: 76px;
-    font-size: 50px;
-    cursor: pointer;
-    font-family: 'Assistant', sans-serif;
+  color: #fff;
+  background-color: #0d99ff;
+  border-radius: 20px;
+  box-shadow: none;
+  font-size: 60px;
+  cursor: pointer;
+  font-family: "Assistant", sans-serif;
+  width: 90px;
+  border: solid 4px #0d99ff;
 }
 
 .addTask button:hover {
-    background-color: #9f66ea;
+  background-color: #43b0ff;
 }
 
 .tasksList {
-    width: 50%;
+  width: 50%;
 }
 
 .taskWrapper {
-    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.05);
-    border-radius: 34px;
-    background-color: #fff;
-    padding: 1rem 1.6rem 1rem 1rem;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 1rem;
-    text-transform: capitalize;
-    font-size: 24px;
-    position: relative;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.05);
+  border-radius: 34px;
+  background-color: #fff;
+  padding: 1rem 1.6rem 1rem 1rem;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  font-size: 24px;
+  position: relative;
 }
 
 .delete {
-    margin-left: auto;
-    display: none;
-    cursor: pointer;
-    background: url('/delete.svg') no-repeat right center;
-    opacity: 0.6;
-    width: 46px;
-    height: 80px;
-    border: none;
-    position: absolute;
-    right: -46px;
+  margin-left: auto;
+  display: none;
+  cursor: pointer;
+  background: url("/delete.svg") no-repeat right center;
+  opacity: 0.6;
+  width: 46px;
+  height: 80px;
+  border: none;
+  position: absolute;
+  right: -46px;
 }
 
 .delete:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-.taskWrapper:hover .delete{
-    display: block;
+.taskWrapper:hover .delete {
+  display: block;
 }
 
 .checkBox {
-    height: 75px;
-    width: 75px;
-    border-radius: 50%;
-    background: #E5E7ED url('/unchecked.svg') no-repeat center 20px;
-    border: solid 4px #F2F3F4;
-    cursor: pointer;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background: #e5e7ed url("/unchecked.svg") no-repeat center 20px;
+  border: solid 4px #f2f3f4;
+  cursor: pointer;
 }
 
 .checkBox:hover {
-    border-color: #D3D7E2;
+  border-color: #d3d7e2;
 }
 
 .checked {
-    background: #5AD18A url('/checked.svg') no-repeat center 20px;
-    border: solid 4px #90E8B3;
+  background: #5ad18a url("/checked.svg") no-repeat center 20px;
+  border: solid 4px #90e8b3;
 }
 
 .checkedInput {
-    text-decoration-line: line-through;
-    text-decoration-color: #090F24;
+  text-decoration-line: line-through;
+  text-decoration-color: #090f24;
 }
 
 .checkedInput[disabled] {
-    background: none;
-    color: #9B9FAD;
+  background: none;
+  color: #9b9fad;
 }
 
 .checked:hover {
-    border-color: #56B67C;
+  border-color: #56b67c;
+}
+
+.taskWrapperChecked {
+  background-color: #f9f9fa;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.02);
 }
 
 .taskRenameInput {
-    border: none;
-    font-size: 24px;
-    font-family: 'Assistant', sans-serif;
-    color: #090F24;
-    padding: 0.6rem;
-    flex-grow: 1;
+  border: none;
+  font-size: 24px;
+  font-family: "Assistant", sans-serif;
+  color: #090f24;
+  padding: 0.6rem;
+  flex-grow: 1;
+  text-transform: capitalize;
+  border-radius: 20px;
 }
-  
+
+.taskRenameInput:not([disabled]) {
+  border: solid 1px #fff;
+}
+
+.taskRenameInput:not([disabled]):hover {
+  border: solid 1px #e2e4ea;
+}

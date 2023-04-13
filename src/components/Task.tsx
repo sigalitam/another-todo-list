@@ -15,7 +15,11 @@ const Task: React.FC<TaskProps> = ({ task, onDelete, updateTaskHandler }) => {
   };
 
   return (
-    <div className={styles.taskWrapper}>
+    <div
+      className={`${styles.taskWrapper} ${
+        task.checked ? styles.taskWrapperChecked : null
+      }`}
+    >
       <div
         className={`${styles.checkBox} ${task.checked ? styles.checked : null}`}
         onClick={() => updateTaskHandler(task.id, "checked")}
