@@ -53,6 +53,12 @@
   width: 50%;
 }
 
+.tasksList li {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
 .taskWrapper {
   box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.05);
   border-radius: 34px;
@@ -74,17 +80,31 @@
   background: url("/delete.svg") no-repeat right center;
   opacity: 0.6;
   width: 46px;
-  height: 80px;
+  height: 100px;
   border: none;
   position: absolute;
   right: -46px;
+}
+
+.reorder {
+  margin-left: auto;
+  display: none;
+  cursor: pointer;
+  background: url("/3dots.svg") no-repeat left center;
+  opacity: 0.6;
+  width: 28px;
+  height: 100px;
+  border: none;
+  position: absolute;
+  left: -28px;
 }
 
 .delete:hover {
   opacity: 1;
 }
 
-.taskWrapper:hover .delete {
+.taskWrapper:hover .delete,
+.taskWrapper:hover .reorder {
   display: block;
 }
 

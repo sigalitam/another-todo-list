@@ -34,6 +34,7 @@ const Task: React.FC<TaskProps> = ({ task, onDelete, updateTaskHandler }) => {
         disabled={task.checked}
       />
       <button className={styles.delete} onClick={onDelete} />
+      <div className={styles.reorder} />
     </div>
   );
 };

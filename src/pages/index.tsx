@@ -83,6 +83,7 @@ const Home: React.FC = () => {
         tasks={tasks}
         onDelete={handleDeleteTask}
         updateTaskHandler={updateTaskHandler}
+        setTasks={setTasks}
       />
     </div>
   );
