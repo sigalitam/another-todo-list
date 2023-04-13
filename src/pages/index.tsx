@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TaskList from "../components/TaskList";
 import TaskTypes from "@/types/TaskInterface";
 import { v4 as uuid } from "uuid";
@@ -8,15 +8,29 @@ const Home: React.FC = () => {
   const [tasks, setTasks] = useState<TaskTypes[]>([]);
   const newTaskRef = useRef<HTMLInputElement | null>(null);
 
-  console.log("tasks", tasks);
+  useEffect(() => {
+    const localStorageTasks = localStorage.getItem("tasks");
+    if (localStorageTasks) {
+      const parseTasks = JSON.parse(localStorageTasks);
+      setTasks(parseTasks);
+    }
+  }, []);
+
+  const setTasksToLocalStorege = (updatedTasks: TaskTypes[]) => {
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
 
   const handleAddTask = () => {
     if (newTaskRef.current && newTaskRef.current.value) {
-      setTasks([
-        ...tasks,
-        { id: uuid(), name: newTaskRef.current.value, checked: false },
-      ]);
+      const updatedTasks = [...tasks];
+      updatedTasks.push({
+        id: uuid(),
+        name: newTaskRef.current.value,
+        checked: false,
+      });
+      setTasks(updatedTasks);
       newTaskRef.current.value = "";
+      setTasksToLocalStorege(updatedTasks);
     }
   };
 
@@ -26,12 +40,18 @@ const Home: React.FC = () => {
     setTasks(updatedTasks);
   };
 
-  const checkBoxHandler = (id: string) => {
+  const updateTaskHandler = (id: string, type: string, rename?: string) => {
     const updatedTasks = [...tasks];
     const taskIndex = updatedTasks.findIndex((task) => task.id === id);
     if (taskIndex !== -1) {
-      updatedTasks[taskIndex].checked = !updatedTasks[taskIndex].checked;
+      if (type === "checked") {
+        updatedTasks[taskIndex].checked = !updatedTasks[taskIndex].checked;
+      }
+      if (type === "rename") {
+        updatedTasks[taskIndex].name = rename || "";
+      }
       setTasks(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
   };
 
@@ -48,14 +68,14 @@ const Home: React.FC = () => {
           type="text"
           ref={newTaskRef}
           onKeyDown={handleKeyDown}
-          placeholder="המשימה הבאה שלי..."
+          placeholder="My next task..."
         />
         <button onClick={handleAddTask}>+</button>
       </div>
       <TaskList
         tasks={tasks}
         onDelete={handleDeleteTask}
-        checkBoxHandler={checkBoxHandler}
+        updateTaskHandler={updateTaskHandler}
       />
     </div>
   );

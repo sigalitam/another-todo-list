@@ -6,13 +6,13 @@ import styles from "@/styles/Home.module.css";
 type TaskListProps = {
   tasks: TaskTypes[];
   onDelete: (index: number) => void;
-  checkBoxHandler: (id: string) => void;
+  updateTaskHandler: (id: string, type: string, rename?: string) => void;
 };
 
 const TaskList: React.FC<TaskListProps> = ({
   tasks,
   onDelete,
-  checkBoxHandler,
+  updateTaskHandler,
 }) => {
   return (
     <div className={styles.tasksList}>
@@ -21,7 +21,7 @@ const TaskList: React.FC<TaskListProps> = ({
           key={index}
           task={task}
           onDelete={() => onDelete(index)}
-          checkBoxHandler={checkBoxHandler}
+          updateTaskHandler={updateTaskHandler}
         />
       ))}
     </div>

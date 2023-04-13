@@ -5,17 +5,30 @@ import TaskTypes from "@/types/TaskInterface";
 type TaskProps = {
   task: TaskTypes;
   onDelete: () => void;
-  checkBoxHandler: (id: string) => void;
+  updateTaskHandler: (id: string, type: string, rename?: string) => void;
 };
 
-const Task: React.FC<TaskProps> = ({ task, onDelete, checkBoxHandler }) => {
+const Task: React.FC<TaskProps> = ({ task, onDelete, updateTaskHandler }) => {
+  const onRenameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    updateTaskHandler(task.id, "rename", inputValue);
+  };
+
   return (
     <div className={styles.taskWrapper}>
       <div
         className={`${styles.checkBox} ${task.checked ? styles.checked : null}`}
-        onClick={() => checkBoxHandler(task.id)}
+        onClick={() => updateTaskHandler(task.id, "checked")}
       />
-      <span>{task.name}</span>
+      <input
+        className={`${styles.taskRenameInput} ${
+          task.checked ? styles.checkedInput : null
+        }`}
+        type="text"
+        value={task.name}
+        onChange={onRenameHandler}
+        disabled={task.checked}
+      />
       <button className={styles.delete} onClick={onDelete} />
     </div>
   );
