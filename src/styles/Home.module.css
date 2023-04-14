@@ -8,12 +8,14 @@
   font-family: "Assistant", sans-serif;
   color: #090f24;
   /* direction: rtl; */
+  height: 100vh;
 }
 
 .addTask {
   display: flex;
   gap: 8px;
   width: 50%;
+  min-width: 500px;
   align-items: center;
   margin-bottom: 2rem;
 }
@@ -23,7 +25,7 @@
   font-size: 24px;
   border-radius: 20px;
   width: calc(100% - 40px);
-  padding: 1.4rem 2rem;
+  padding: 1.2rem 2rem;
   background-color: transparent;
   font-family: "Assistant", sans-serif;
   color: #090f24;
@@ -38,7 +40,7 @@
   background-color: #0d99ff;
   border-radius: 20px;
   box-shadow: none;
-  font-size: 60px;
+  font-size: 52px;
   cursor: pointer;
   font-family: "Assistant", sans-serif;
   width: 90px;
@@ -51,6 +53,7 @@
 
 .tasksList {
   width: 50%;
+  min-width: 500px;
 }
 
 .tasksList li {
