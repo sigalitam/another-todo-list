@@ -1,8 +1,10 @@
 import React from "react";
-import Task from "./Task";
-import TaskTypes from "@/types/TaskInterface";
-import styles from "@/styles/Home.module.css";
 import { Reorder } from "framer-motion";
+
+import Task from "@/components/tasks/Task";
+import TaskTypes from "@/types/TaskInterface";
+
+import styles from "@/styles/Home.module.css";
 
 type TaskListProps = {
   tasks: TaskTypes[];

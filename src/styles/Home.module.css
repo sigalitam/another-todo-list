@@ -3,19 +3,18 @@
 .mainWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 4rem;
+  padding: 4rem 0;
   font-family: "Assistant", sans-serif;
   color: #090f24;
-  /* direction: rtl; */
-  height: 100vh;
+  min-height: 100vh;
+  width: 50%;
+  min-width: 360px;
+  margin:  0 auto;
 }
 
 .addTask {
   display: flex;
   gap: 8px;
-  width: 50%;
-  min-width: 360px;
   align-items: center;
   margin-bottom: 2rem;
 }
@@ -49,11 +48,6 @@
 
 .addTask button:hover {
   background-color: #43b0ff;
-}
-
-.tasksList {
-  width: 50%;
-  min-width: 360px;
 }
 
 .tasksList li {
@@ -106,7 +100,9 @@
   opacity: 1;
 }
 
-.taskWrapper:hover .delete,
+.taskWrapper:hover .delete, 
+.listWrapper:hover .delete,
+.listWrapper:hover .reorder,
 .taskWrapper:hover .reorder {
   display: block;
 }
@@ -166,4 +162,63 @@
 
 .taskRenameInput:not([disabled]):hover {
   border: solid 1px #e2e4ea;
+}
+
+.listWrapper {
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.05);
+  border-radius: 34px;
+  background-color: #fff;
+  padding: 1rem 1.6rem;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  font-size: 24px;
+  position: relative;
+}
+
+.listData {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listDate {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #9B9FAD;
+}
+
+.listStatusWrapper {
+  display: flex;
+  gap: 18px;
+  position: relative;
+}
+
+.listStatus {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  gap: 4px;
+  color: #9B9FAD;
+}
+
+.listDone {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #e5e7ed url("/unchecked.svg") no-repeat center 8px;
+  background-size: 42%;
+  border: solid 2px #f2f3f4;
+}
+
+.listUnDone {
+  background: #5ad18a url("/checked.svg") no-repeat center 8px;
+  border: solid 2px #90e8b3;
+  height: 30px;
+  width: 30px;
+  background-size: 47%;
+  border-radius: 50%;
 }
