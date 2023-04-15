@@ -249,11 +249,10 @@
   border-radius: 20px;
   padding: 0.6rem 1rem;
   background-color: transparent;
-  font-weight: 600;
   border: solid 1px transparent;
 }
 
-.taskHead:hover {
+input.taskHead:hover {
   border: solid 1px #e2e4ea;
 }
 

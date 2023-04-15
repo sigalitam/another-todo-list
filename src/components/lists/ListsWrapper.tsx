@@ -42,7 +42,7 @@ const ListsWrapper: React.FC = () => {
 
   return (
     <div className={styles.listsWrapper}>
-      <h1 className={styles.taskHead}>{`My Todo's lists`}</h1>
+      <h1 className={styles.taskHead}>{`Another Todo list`}</h1>
       <CreateNewEntry
         onCreateNewEntry={handleAddList}
         placeholder="My new List..."
