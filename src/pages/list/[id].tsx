@@ -9,9 +9,18 @@ const ListPage: React.FC<Props> = () => {
   const router = useRouter();
   const id = router.query.id as string;
 
+  const getDataFromStorege = () => {
+    if (router.query.data) {
+      return JSON.parse(router.query.data as string);
+    }
+    return [];
+  };
+
+  const dataFromStorege = getDataFromStorege();
+
   return (
     <div className={styles.mainWrapper}>
-      <TaskWrapper listId={id} />
+      <TaskWrapper listId={id} dataFromStorege={dataFromStorege} />
     </div>
   );
 };
